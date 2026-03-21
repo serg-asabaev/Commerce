@@ -3,6 +3,7 @@ import pytest
 
 from src.product import Product
 
+
 @pytest.fixture()
 def product_iphone():
     return Product('Iphone 17', 'Смартфон Apple iPhone 17 A3520 256Gb пурпурный sim-esim в регионах России', 89999, 20)
