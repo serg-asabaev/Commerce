@@ -26,3 +26,27 @@ def test_quantity_change(product_iphone):
     assert product_iphone.quantity == 20
     product_iphone.quantity = 120
     assert product_iphone.quantity == 120
+
+def test_new_product():
+    product_dict = {
+        'name': 'Nokia 3600',
+        'description': 'Черный 512 мб.',
+        'price': 7390.0,
+        'quantity': 100
+    }
+    product1 = Product.new_product(product_dict)
+
+    assert product1.name == 'Nokia 3600'
+    assert product1.description == 'Черный 512 мб.'
+    assert product1.price == 7390.0
+    assert product1.quantity == 100
+
+
+def test_price_getter(product_iphone):
+    assert product_iphone.price == 89999
+
+
+def test_price_setter(product_iphone):
+    assert product_iphone.price == 89999
+    product_iphone.price = 70000.0
+    assert product_iphone.price == 70000.0
