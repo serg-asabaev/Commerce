@@ -6,6 +6,9 @@ if __name__ == "__main__":
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
 
+    sum_pr_1_2 = product1 + product2
+    print(sum_pr_1_2)
+
     # print(product1.name)
     # print(product1.description)
     print(product1.price)
@@ -40,7 +43,7 @@ if __name__ == "__main__":
     # print(len(category1.products))
     # print(category1.category_count)
     # print(category1.product_count)
-    print(category1.products)
+    print(category1)
 
     product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
     category2 = Category("Телевизоры",
@@ -50,8 +53,4 @@ if __name__ == "__main__":
     # print(category2.name)
     # print(category2.description)
     # print(len(category2.products))
-    print(category2.products)
-    #
-    # print(Category.category_count)
-    # print(Category.product_count)
-    print(category2.products)
+    print(category2)

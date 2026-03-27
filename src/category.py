@@ -32,3 +32,14 @@ class Category:
 
         return products_out
 
+
+    def __str__(self):
+        """ Вывод строки по print(category)"""
+
+        product_count = 0
+
+        for prod in self.__products:
+            product_count += prod.quantity
+
+        res = f'{self.name}, количество продуктов: {product_count} шт.'
+        return res

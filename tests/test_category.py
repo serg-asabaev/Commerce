@@ -63,3 +63,5 @@ def test_add_product(category_smartphone):
                                              'Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.',
                                              'Xiaomi Redmi 11, 31000.0 руб. Остаток: 14 шт.']
 
+def test_product_str(category_smartphone):
+    assert str(category_smartphone) == 'Смартфоны, количество продуктов: 27 шт.'

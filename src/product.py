@@ -27,3 +27,9 @@ class Product:
             print('Цена не должна быть нулевая или отрицательная!')
         else:
             self.__price = price
+
+
+    def __add__(self, other):
+        """ Сложение сумм всех продуктов в категории"""
+        res = (self.__price * self.quantity) + (other.price * other.quantity)
+        return res

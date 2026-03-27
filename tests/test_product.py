@@ -8,6 +8,11 @@ from src.product import Product
 def product_iphone():
     return Product('Iphone 17', 'Смартфон Apple iPhone 17 A3520 256Gb пурпурный sim-esim в регионах России', 89999, 20)
 
+@pytest.fixture()
+def product_samsung():
+    return Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+
+
 
 def test_init(product_iphone):
     assert product_iphone.name == 'Iphone 17'
@@ -50,3 +55,12 @@ def test_price_setter(product_iphone):
     assert product_iphone.price == 89999
     product_iphone.price = 70000.0
     assert product_iphone.price == 70000.0
+
+def test_add(product_iphone, product_samsung):
+    assert product_iphone + product_samsung == 2_699_980
+
+
+def test_add_zero(product_iphone):
+    product_new = Product("Iphone 17", "Смартфон Apple iPhone 17 A3520 256Gb пурпурный sim-esim в регионах России",
+                          100000, 0)
+    assert product_iphone + product_new == 1_799_980
