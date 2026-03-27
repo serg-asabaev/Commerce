@@ -47,3 +47,19 @@ def test_product_count():
                            [product1])
 
     assert category_tv.product_count == 8
+
+def test_products_private(category_smartphone):
+
+    assert category_smartphone.products == ['Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.',
+                                             'Iphone 15, 210000.0 руб. Остаток: 8 шт.',
+                                             'Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.']
+
+def test_add_product(category_smartphone):
+    product1 = Product("Xiaomi Redmi 11", "1024GB, Синий", 31000.0, 14)
+    category_smartphone.add_product(product1)
+
+    assert category_smartphone.products == ['Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.',
+                                             'Iphone 15, 210000.0 руб. Остаток: 8 шт.',
+                                             'Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.',
+                                             'Xiaomi Redmi 11, 31000.0 руб. Остаток: 14 шт.']
+
