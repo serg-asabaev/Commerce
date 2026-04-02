@@ -1,4 +1,4 @@
-from src.product import Product, Smartphone
+from src.product import Product, Smartphone, LawnGrass
 from src.category import Category
 
 if __name__ == "__main__":
@@ -9,11 +9,22 @@ if __name__ == "__main__":
     sm_1 = Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, '2,25 Ггц',\
                       'Galaxy S23 Ultra', '256GB', 'Серый')
 
-    print(sm_1.name)
-    print(sm_1.description)
-    print(sm_1.price)
-    print(sm_1.quantity)
-    print(sm_1.efficiency)
-    print(sm_1.model)
-    print(sm_1.memory)
-    print(sm_1.color)
+    lg_1 = LawnGrass('Canada Green', 'Газонная трава семена Канада Грин Универсальная 10 кг / Канада Грин Универсальный 10 кг/ Canada Green Universal 10 кг / семена газона райграс, тимофеевка, овсяница', 6449\
+                     , 500, 'Canada', 'Июнь, Июль, Август', 'изумрудно-зеленый')
+
+    # print(sm_1.name)
+    # print(sm_1.description)
+    # print(sm_1.price)
+    # print(sm_1.quantity)
+    # print(sm_1.efficiency)
+    # print(sm_1.model)
+    # print(sm_1.memory)
+    # print(sm_1.color)
+
+    print(lg_1.name)
+    print(lg_1.description)
+    print(lg_1.price)
+    print(lg_1.quantity)
+    print(lg_1.country)
+    print(lg_1.germination_period)
+    print(lg_1.color)
