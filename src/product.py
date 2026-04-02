@@ -3,7 +3,7 @@
 class Product:
     name = ''
     description = ''
-    __price = 0
+    __price = 0.0
     quantity = 0
 
     def __init__(self, name: str, description: str, price: float, quantity: int):
@@ -28,7 +28,6 @@ class Product:
         else:
             self.__price = price
 
-
     def __add__(self, other):
         """ Сложение сумм всех продуктов в категории"""
         if isinstance(other, self.__class__):
@@ -36,6 +35,7 @@ class Product:
             return res
 
         raise TypeError
+
 
 class Smartphone(Product):
     efficiency = ''
