@@ -33,3 +33,23 @@ class Product:
         """ Сложение сумм всех продуктов в категории"""
         res = (self.__price * self.quantity) + (other.price * other.quantity)
         return res
+
+
+class Smartphone(Product):
+    efficiency = ''
+    model = ''
+    memory = ''
+    color = ''
+
+    def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
+        super().__init__(name, description, price, quantity)
+        self.efficiency = efficiency
+        self.model = model
+        self.memory = memory
+        self.color = color
+
+
+class LawnGrass(Product):
+    country = ''
+    germination_period = ''
+    color = ''
