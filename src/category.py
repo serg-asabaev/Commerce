@@ -19,8 +19,12 @@ class Category:
         Category.product_count += len(products)
 
     def add_product(self, product: Product):
-        self.__products.append(product)
-        Category.product_count += 1
+
+        if issubclass(product.__class__, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
     @property
     def products(self):

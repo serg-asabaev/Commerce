@@ -31,9 +31,11 @@ class Product:
 
     def __add__(self, other):
         """ Сложение сумм всех продуктов в категории"""
-        res = (self.__price * self.quantity) + (other.price * other.quantity)
-        return res
+        if isinstance(other, self.__class__):
+            res = (self.__price * self.quantity) + (other.price * other.quantity)
+            return res
 
+        raise TypeError
 
 class Smartphone(Product):
     efficiency = ''
