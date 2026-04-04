@@ -30,7 +30,7 @@ class Product:
 
     def __add__(self, other):
         """ Сложение сумм всех продуктов в категории"""
-        if isinstance(other, self.__class__):
+        if type(self) == type(other):
             res = (self.__price * self.quantity) + (other.price * other.quantity)
             return res
 
