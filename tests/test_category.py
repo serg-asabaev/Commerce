@@ -2,7 +2,8 @@ import pytest
 from unicodedata import category
 
 from src.category import Category
-from src.product import Product
+from src.product import Product, Smartphone, LawnGrass
+
 
 @pytest.fixture()
 def category_smartphone():
@@ -14,6 +15,20 @@ def category_smartphone():
                          "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
                          [product1, product2, product3])
 
+@pytest.fixture()
+def my_smartphone():
+    return Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, '2,25 Ггц', \
+                      'Galaxy S23 Ultra', '256GB', 'Серый')
+
+@pytest.fixture()
+def my_lawn_grass():
+    return LawnGrass('Canada Green', 'Газонная трава семена Канада Грин Универсальная 10 кг / Канада Грин Универсальный 10 кг/ Canada Green Universal 10 кг / семена газона райграс, тимофеевка, овсяница'
+                     , 6449
+                     , 500, 'Canada', 'Июнь, Июль, Август', 'изумрудно-зеленый')
+
+@pytest.fixture()
+def my_product():
+    return Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
 
 def test_init(category_smartphone):
     assert category_smartphone.name == 'Смартфоны'
@@ -65,3 +80,24 @@ def test_add_product(category_smartphone):
 
 def test_product_str(category_smartphone):
     assert str(category_smartphone) == 'Смартфоны, количество продуктов: 27 шт.'
+
+
+def test_add_product_obj_class(my_smartphone, my_lawn_grass, my_product):
+    ctg_1 = Category('Тестовая категория', 'для проверки ограничений классов товаров', [])
+
+    ctg_1.add_product(my_smartphone)
+    ctg_1.add_product(my_lawn_grass)
+    ctg_1.add_product(my_product)
+
+    assert ctg_1.products == ['Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.',
+                              'Canada Green, 6449 руб. Остаток: 500 шт.',
+                              'Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.']
+
+def test_add_product_obj_class_error():
+    ctg_1 = Category('Тестовая категория 1', 'для проверки ограничений классов товаров', [])
+    ctg_2 = Category('Тестовая категория 2', 'для проверки ограничений классов товаров', [])
+
+    try:
+        ctg_1.add_product(ctg_2)
+    except Exception as e:
+        assert type(e) == TypeError

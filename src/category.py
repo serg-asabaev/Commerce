@@ -1,4 +1,3 @@
-from itertools import product
 
 from src.product import Product
 
@@ -6,7 +5,7 @@ from src.product import Product
 class Category:
     name = ''
     description = ''
-    __products = []
+    __products: list = []
     category_count = 0
     product_count = 0
 
@@ -18,9 +17,13 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
-    def add_product(self, product: Product):
-        self.__products.append(product)
-        Category.product_count += 1
+    def add_product(self, product):
+
+        if isinstance(product, Product) or issubclass(product.__class__, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
     @property
     def products(self):
@@ -31,7 +34,6 @@ class Category:
             products_out.append(prod_str)
 
         return products_out
-
 
     def __str__(self):
         """ Вывод строки по print(category)"""
