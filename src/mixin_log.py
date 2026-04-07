@@ -10,9 +10,8 @@ class MyLogMixin:
             log_str += prod_str
 
         if self.__class__.__name__ == 'Smartphone':
-            print(self.efficiency)
             smart_str = f", '{self.efficiency}', '{self.model}', '{self.memory}', '{self.color}'"
-            log_str += smart_str + prod_str
+            log_str = log_str + smart_str + prod_str
 
         if self.__class__.__name__ == 'LawnGrass':
             log_str += f", '{self.country}', '{self.germination_period}', '{self.color}'" + prod_str

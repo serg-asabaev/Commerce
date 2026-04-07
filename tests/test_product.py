@@ -114,3 +114,17 @@ def test_add_obj_class_error(my_smartphone, my_lawn_grass):
         res = my_smartphone + my_lawn_grass
     except Exception as e:
         assert type(e) == TypeError
+
+def test_mixin_log(capsys):
+    sm_1 = Smartphone("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14, '1,7ГГц','Redmi Note 11', '1024GB', 'Синий')
+    captured = capsys.readouterr()
+    assert captured.out == "Smartphone('Xiaomi Redmi Note 11', '1024GB, Синий', 31000.0, 14, '1,7ГГц', 'Redmi Note 11', '1024GB', 'Синий')\n"
+
+    pr_1 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+    captured = capsys.readouterr()
+    assert captured.out == "Product('Xiaomi Redmi Note 11', '1024GB, Синий', 31000.0, 14)\n"
+
+    lg_2 = LawnGrass('Трава стандартная', 'Тестовый вариант травы', 5300, 100,
+                     'Россия', 'Июль-сентябрь', 'Салатовый')
+    captured = capsys.readouterr()
+    assert captured.out == "LawnGrass('Трава стандартная', 'Тестовый вариант травы', 5300, 100, 'Россия', 'Июль-сентябрь', 'Салатовый')\n"
