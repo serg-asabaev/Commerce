@@ -40,7 +40,7 @@ class Product(MyLogMixin, BaseProduct):
         raise TypeError
 
 
-class Smartphone(Product, MyLogMixin):
+class Smartphone(Product):
     efficiency = ""
     model = ""
     memory = ""
@@ -56,7 +56,7 @@ class Smartphone(Product, MyLogMixin):
         super().__init__(name, description, price, quantity)
 
 
-class LawnGrass(Product, MyLogMixin):
+class LawnGrass(Product):
     country = ""
     germination_period = ""
     color = ""
