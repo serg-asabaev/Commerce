@@ -44,3 +44,6 @@ if __name__ == '__main__':
 
     print(Category.category_count)
     print(Category.product_count)
+
+    smart_1 = Smartphone("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14, '1,7ГГц',\
+                         'Redmi Note 11', '1024GB', 'Синий')

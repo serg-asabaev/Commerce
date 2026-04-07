@@ -1,7 +1,7 @@
 from src.base_product import BaseProduct
+from src.mixin_log import MyLogMixin
 
-
-class Product(BaseProduct):
+class Product(MyLogMixin, BaseProduct):
     name = ''
     description = ''
     __price = 0.0
@@ -12,6 +12,7 @@ class Product(BaseProduct):
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     @classmethod
     def new_product(cls, params: dict):
@@ -38,27 +39,27 @@ class Product(BaseProduct):
         raise TypeError
 
 
-class Smartphone(Product):
+class Smartphone(Product, MyLogMixin):
     efficiency = ''
     model = ''
     memory = ''
     color = ''
 
     def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
-        super().__init__(name, description, price, quantity)
         self.efficiency = efficiency
         self.model = model
         self.memory = memory
         self.color = color
+        super().__init__(name, description, price, quantity)
 
 
-class LawnGrass(Product):
+class LawnGrass(Product, MyLogMixin):
     country = ''
     germination_period = ''
     color = ''
 
     def __init__(self, name, description, price, quantity, country, germination_period, color):
-        super().__init__(name, description, price, quantity)
         self.country = country
         self.germination_period = germination_period
         self.color = color
+        super().__init__(name, description, price, quantity)
