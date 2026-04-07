@@ -1,9 +1,10 @@
 from src.base_product import BaseProduct
 from src.mixin_log import MyLogMixin
 
+
 class Product(MyLogMixin, BaseProduct):
-    name = ''
-    description = ''
+    name = ""
+    description = ""
     __price = 0.0
     quantity = 0
 
@@ -26,12 +27,12 @@ class Product(MyLogMixin, BaseProduct):
     @price.setter
     def price(self, price):
         if price <= 0:
-            print('Цена не должна быть нулевая или отрицательная!')
+            print("Цена не должна быть нулевая или отрицательная!")
         else:
             self.__price = price
 
     def __add__(self, other):
-        """ Сложение сумм всех продуктов в категории"""
+        """Сложение сумм всех продуктов в категории"""
         if type(self) == type(other):
             res = (self.__price * self.quantity) + (other.price * other.quantity)
             return res
@@ -40,12 +41,14 @@ class Product(MyLogMixin, BaseProduct):
 
 
 class Smartphone(Product, MyLogMixin):
-    efficiency = ''
-    model = ''
-    memory = ''
-    color = ''
+    efficiency = ""
+    model = ""
+    memory = ""
+    color = ""
 
-    def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
+    def __init__(
+        self, name, description, price, quantity, efficiency, model, memory, color
+    ):
         self.efficiency = efficiency
         self.model = model
         self.memory = memory
@@ -54,11 +57,13 @@ class Smartphone(Product, MyLogMixin):
 
 
 class LawnGrass(Product, MyLogMixin):
-    country = ''
-    germination_period = ''
-    color = ''
+    country = ""
+    germination_period = ""
+    color = ""
 
-    def __init__(self, name, description, price, quantity, country, germination_period, color):
+    def __init__(
+        self, name, description, price, quantity, country, germination_period, color
+    ):
         self.country = country
         self.germination_period = germination_period
         self.color = color
