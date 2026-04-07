@@ -1,6 +1,7 @@
+from src.base_product import BaseProduct
 
 
-class Product:
+class Product(BaseProduct):
     name = ''
     description = ''
     __price = 0.0
