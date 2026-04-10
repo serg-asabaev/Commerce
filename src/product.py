@@ -1,8 +1,10 @@
+from src.base_product import BaseProduct
+from src.mixin_log import MyLogMixin
 
 
-class Product:
-    name = ''
-    description = ''
+class Product(MyLogMixin, BaseProduct):
+    name = ""
+    description = ""
     __price = 0.0
     quantity = 0
 
@@ -11,6 +13,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     @classmethod
     def new_product(cls, params: dict):
@@ -24,12 +27,12 @@ class Product:
     @price.setter
     def price(self, price):
         if price <= 0:
-            print('Цена не должна быть нулевая или отрицательная!')
+            print("Цена не должна быть нулевая или отрицательная!")
         else:
             self.__price = price
 
     def __add__(self, other):
-        """ Сложение сумм всех продуктов в категории"""
+        """Сложение сумм всех продуктов в категории"""
         if type(self) == type(other):
             res = (self.__price * self.quantity) + (other.price * other.quantity)
             return res
@@ -38,26 +41,30 @@ class Product:
 
 
 class Smartphone(Product):
-    efficiency = ''
-    model = ''
-    memory = ''
-    color = ''
+    efficiency = ""
+    model = ""
+    memory = ""
+    color = ""
 
-    def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
-        super().__init__(name, description, price, quantity)
+    def __init__(
+        self, name, description, price, quantity, efficiency, model, memory, color
+    ):
         self.efficiency = efficiency
         self.model = model
         self.memory = memory
         self.color = color
+        super().__init__(name, description, price, quantity)
 
 
 class LawnGrass(Product):
-    country = ''
-    germination_period = ''
-    color = ''
+    country = ""
+    germination_period = ""
+    color = ""
 
-    def __init__(self, name, description, price, quantity, country, germination_period, color):
-        super().__init__(name, description, price, quantity)
+    def __init__(
+        self, name, description, price, quantity, country, germination_period, color
+    ):
         self.country = country
         self.germination_period = germination_period
         self.color = color
+        super().__init__(name, description, price, quantity)

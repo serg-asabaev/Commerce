@@ -1,10 +1,9 @@
-
 from src.product import Product
 
 
 class Category:
-    name = ''
-    description = ''
+    name = ""
+    description = ""
     __products: list = []
     category_count = 0
     product_count = 0
@@ -30,18 +29,18 @@ class Category:
         products_out = []
 
         for prod in self.__products:
-            prod_str = f'{prod.name}, {prod.price} руб. Остаток: {prod.quantity} шт.'
+            prod_str = f"{prod.name}, {prod.price} руб. Остаток: {prod.quantity} шт."
             products_out.append(prod_str)
 
         return products_out
 
     def __str__(self):
-        """ Вывод строки по print(category)"""
+        """Вывод строки по print(category)"""
 
         product_count = 0
 
         for prod in self.__products:
             product_count += prod.quantity
 
-        res = f'{self.name}, количество продуктов: {product_count} шт.'
+        res = f"{self.name}, количество продуктов: {product_count} шт."
         return res
