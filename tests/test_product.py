@@ -70,12 +70,6 @@ def test_price_setter(product_iphone):
 def test_add(product_iphone, product_samsung):
     assert product_iphone + product_samsung == 2_699_980
 
-
-def test_add_zero(product_iphone):
-    product_new = Product("Iphone 17", "Смартфон Apple iPhone 17 A3520 256Gb пурпурный sim-esim в регионах России",
-                          100000, 0)
-    assert product_iphone + product_new == 1_799_980
-
 def test_smartphone_init(my_smartphone):
     assert my_smartphone.name == 'Samsung Galaxy S23 Ultra'
     assert my_smartphone.description == '256GB, Серый цвет, 200MP камера'
@@ -128,3 +122,11 @@ def test_mixin_log(capsys):
                      'Россия', 'Июль-сентябрь', 'Салатовый')
     captured = capsys.readouterr()
     assert captured.out == "LawnGrass('Трава стандартная', 'Тестовый вариант травы', 5300, 100, 'Россия', 'Июль-сентябрь', 'Салатовый')\n"
+
+
+def test_zero_quantity(product_iphone):
+    """ Тест ошибки нулевого количества """
+    with pytest.raises(ValueError, match='Товар с нулевым количеством не может быть добавлен'):
+        Product("Iphone 17", "Смартфон Apple iPhone 17 A3520 256Gb пурпурный sim-esim в регионах России",
+                          100000, 0)
+
