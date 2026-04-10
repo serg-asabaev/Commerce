@@ -101,3 +101,10 @@ def test_add_product_obj_class_error():
         ctg_1.add_product(ctg_2)
     except Exception as e:
         assert type(e) == TypeError
+
+def test_middle_price(category_smartphone):
+    assert category_smartphone.middle_price() == 140333.33
+
+def test_middle_price_empty():
+    test_ctg = Category('Тестовая категория 1', 'для проверки ограничений классов товаров', [])
+    assert test_ctg.middle_price() == 0

@@ -44,3 +44,18 @@ class Category:
 
         res = f"{self.name}, количество продуктов: {product_count} шт."
         return res
+
+    def middle_price(self):
+        """ Получение среднего ценника продукции в категории """
+
+        try:
+            prod_prices = []
+
+            for product in self.__products:
+                prod_prices.append(product.price)
+
+            result = round(sum(prod_prices) / len(prod_prices), 2)
+        except ZeroDivisionError as e:
+            result = 0
+
+        return result
