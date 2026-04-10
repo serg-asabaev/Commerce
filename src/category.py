@@ -45,7 +45,7 @@ class Category:
         res = f"{self.name}, количество продуктов: {product_count} шт."
         return res
 
-    def get_avg_price(self):
+    def middle_price(self):
         """ Получение среднего ценника продукции в категории """
 
         try:
